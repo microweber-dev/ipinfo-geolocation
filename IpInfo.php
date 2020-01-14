@@ -7,6 +7,7 @@
  */
 
 include "GeolocationProviders.php";
+include "CacheManager.php";
 
 class IpInfo
 {
@@ -32,10 +33,20 @@ class IpInfo
 
     public function getDetails()
     {
+        $cache = new CacheManager();
+        $cache->setCacheFilename(md5($this->ip));
+        $cacheData = $cache->getCacheData();
+        if ($cacheData) {
+           // $cacheData->cache = true;
+            return $cacheData;
+        }
         $geo = new GeolocationProviders();
         $geo->setIp($this->ip);
+        $geoDetails = $geo->getDetails();
 
-        return $geo->getDetails();
+        $cache->setCacheData($geoDetails);
+
+        return $geoDetails;
     }
 
 }
