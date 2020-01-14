@@ -53,6 +53,7 @@ class GeolocationProviders
         }
 
         $geoInfo = new GeolocationInfo();
+        $geoInfo->setIp($this->ip);
         $geoInfo->setCountryName($json['country_name']);
         $geoInfo->setCountryCode($json['country_code']);
         $geoInfo->setRegionCode($json['region_code']);
@@ -81,6 +82,7 @@ class GeolocationProviders
         }
 
         $geoInfo = new GeolocationInfo();
+        $geoInfo->setIp($this->ip);
         $geoInfo->setCountryName($json['country_name']);
         $geoInfo->setCountryCode($json['country_code']);
         $geoInfo->setRegionCode($json['region_code']);
@@ -109,6 +111,7 @@ class GeolocationProviders
         }
 
         $geoInfo = new GeolocationInfo();
+        $geoInfo->setIp($this->ip);
         $geoInfo->setCountryName($json['country']);
         $geoInfo->setCountryCode($json['countryCode']);
         $geoInfo->setRegionCode($json['region']);

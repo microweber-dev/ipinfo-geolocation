@@ -9,6 +9,7 @@
 
 class GeolocationInfo {
 
+    public $ip = '';
     public $countryName = '';
     public $countryCode = '';
     public $regionCode = '';
@@ -18,6 +19,10 @@ class GeolocationInfo {
     public $latitude = '';
     public $longtitude = '';
     public $timeZone = '';
+
+    public function setIp($ip) {
+        $this->ip = $ip;
+    }
 
     public function setCountryName($name) {
         $this->countryName = $name;
